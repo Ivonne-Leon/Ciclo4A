@@ -2,6 +2,7 @@ package com.example.Ciclo4.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -53,12 +54,12 @@ public class ProductoController {
 		}
 	}
 
-	@GetMapping("/productos/{codigo}")
-	public ResponseEntity<Producto> getProductoByCodigo(@PathVariable("codigo") String codigo) {
-		List<Producto> productoData = productoRepository.findBycodigoProducto(codigo);
+	@GetMapping("/productos/{Id}")
+	public ResponseEntity<Producto> getProductoById(@PathVariable("Id") String Id) {
+		Optional<Producto> productoData = productoRepository.findById(Id);
 
-		if (productoData.size() >= 1) {
-			return new ResponseEntity<>(productoData.get(0), HttpStatus.OK);
+		if (productoData.isPresent()) {
+			return new ResponseEntity<>(productoData.get(), HttpStatus.OK);
 		} else {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
@@ -80,12 +81,13 @@ public class ProductoController {
 		}
 	}
 
-	@PutMapping("/productos/{codigo}")
-	public ResponseEntity<Producto> updateProducto(@PathVariable("codigo") String codigo, @RequestBody Producto produc) {
-		List<Producto> productoData = productoRepository.findBycodigoProducto(codigo);
+	@PutMapping("/productos/{id}")
+	public ResponseEntity<Producto> updateProducto(@PathVariable("id") String Id, @RequestBody Producto produc) {
+		Optional<Producto> productoData = productoRepository.findById(Id);
 
-		if (productoData.size() >= 1) {
-			Producto _producto = productoData.get(0);
+		if (productoData.isPresent()) {
+			Producto _producto = productoData.get();
+			
 			_producto.setNombreProducto(produc.getNombreProducto());
 			_producto.setNitProveedor(produc.getNitProveedor());
 			_producto.setPrecioCompra(produc.getPrecioCompra());

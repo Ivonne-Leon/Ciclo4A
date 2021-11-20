@@ -1,11 +1,13 @@
 package com.example.Ciclo4.model;
 
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "Productos")
 public class Producto {
 
-	
+	@Id
+	private String id;
 	private String codigoProducto;
 	private String nombreProducto;
 	private double nitProveedor;
@@ -26,6 +28,15 @@ public class Producto {
 		this.ivaCompra=ivaCompra;
 		this.precioVenta=precioVenta;
 		
+	}
+
+	
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
 	}
 
 	public String getCodigoProducto() {
