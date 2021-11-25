@@ -8,20 +8,21 @@
               <div class=" row">
                 <div class=" col-md-6 pr-md-1">
                   <div class=" form-group">
-                    <label> Cedula </label>
+                    <label> Cédula </label>
                     <input
+                      ngModel
                       class=" form-control"
-                      placeholder="Cedula"
+                      placeholder="Cédula"
                       type="text"
                     />
                   </div>
                 </div>
                 <div class=" col-md-6 px-md-1">
                   <div class=" form-group">
-                    <label> Telefono </label>
+                    <label> Teléfono </label>
                     <input
                       class=" form-control"
-                      placeholder="Numero de Telefono"
+                      placeholder="Número de Teléfono"
                       type="number"
                     />
                   </div>
@@ -38,7 +39,7 @@
                 </div>
                 <div class=" col-md-6 pl-md-1">
                   <div class=" form-group">
-                    <label> Correo electronico </label>
+                    <label> Correo Electrónico </label>
                     <input
                       class=" form-control"
                       placeholder="alguien@email.com"
@@ -60,7 +61,7 @@
 
 			<div class="container-btn-group">
 
-					<button type="button" class="btn btn-danger">
+					<button type="button" class="btn btn-danger" >
 						<i class="fas fa-plus-circle"></i> Crear
 					</button>
 					<button type="button" class="btn btn-danger">
@@ -84,11 +85,11 @@
                       <table class=" table tablesorter" id="">
                           <thead class=" text-primary">
                               <tr>
-                                  <th>Cédula</th>
-                                  <th>Nombre Completo</th>
-                                  <th>Dirección</th>
-                                  <th>Teléfono</th>
-                                  <th>Correo Electrónico</th>
+                                  <th class=" text-center">Cédula</th>
+                                  <th class=" text-center">Nombre Completo</th>
+                                  <th class=" text-center">Dirección</th>
+                                  <th class=" text-center">Teléfono</th>
+                                  <th class=" text-center">Correo Electrónico</th>
                                   <th class=" text-center">Editar</th>
                                   <th class=" text-center">Eliminar</th>
                               </tr>
@@ -97,11 +98,11 @@
 
 
                               <tr *ngFor="let cliente of listaClientes">
-                                  <td>{{cliente.cedula}}</td>
-                                  <td>{{cliente.nombreCompleto}}</td>
-                                  <td>{{cliente.direccion}}</td>
-                                  <td>{{cliente.telefono}}</td>
-                                  <td>{{cliente.correoElectronico}}</td>
+                                  <td class=" text-center">{{cliente.cedula}}</td>
+                                  <td class=" text-center">{{cliente.nombreCompleto}}</td>
+                                  <td class=" text-center">{{cliente.direccion}}</td>
+                                  <td class=" text-center">{{cliente.telefono}}</td>
+                                  <td class=" text-center">{{cliente.correoElectronico}}</td>
                                   <td class=" text-center">
                                       <a [routerLink]="" (click)="editarCliente(cliente)">
                                           <i class="tim-icons icon-pencil"></i>
