@@ -64,7 +64,7 @@
 						<i class="fas fa-plus-circle"></i> Crear
 					</button>
 					<button type="button" class="btn btn-danger">
-						<i class="fas fa-trash"></i> Eliminar 
+						<i class="fas fa-trash"></i> Eliminar
 					</button>
 					<button type="button" class="btn btn-danger">
 						<i class="fas fa-pen-alt"></i> Actualizar
@@ -74,9 +74,55 @@
 					</button>
 				</div>
 
+        <div class=" col-md-12">
+          <div class=" card">
+              <div class=" card-header">
+                  <h4 class=" card-title">Lista Clientes</h4>
+              </div>
+              <div class=" card-body">
+                  <div class=" table-responsive">
+                      <table class=" table tablesorter" id="">
+                          <thead class=" text-primary">
+                              <tr>
+                                  <th>Cédula</th>
+                                  <th>Nombre Completo</th>
+                                  <th>Dirección</th>
+                                  <th>Teléfono</th>
+                                  <th>Correo Electrónico</th>
+                                  <th class=" text-center">Editar</th>
+                                  <th class=" text-center">Eliminar</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+
+
+                              <tr *ngFor="let cliente of listaClientes">
+                                  <td>{{cliente.cedula}}</td>
+                                  <td>{{cliente.nombreCompleto}}</td>
+                                  <td>{{cliente.direccion}}</td>
+                                  <td>{{cliente.telefono}}</td>
+                                  <td>{{cliente.correoElectronico}}</td>
+                                  <td class=" text-center">
+                                      <a [routerLink]="" (click)="editarCliente(cliente)">
+                                          <i class="tim-icons icon-pencil"></i>
+                                      </a>
+                                  </td>
+                                  <td class=" text-center">
+                                      <a [routerLink]="" (click)="eliminarCliente(cliente)">
+                                          <i class="tim-icons icon-simple-delete"></i>
+                                      </a>
+                                  </td>
+                              </tr>
+
+
+                          </tbody>
+                      </table>
+                  </div>
+              </div>
+          </div>
+      </div>
 
 
 
-	
-            
-              
+
+
